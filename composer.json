@@ -41,7 +41,7 @@
     "post-update-cmd": "composer config-ti-wpcs",
     "test-phpcbf": "./vendor/bin/phpcbf ./",
     "test-phpcs": "./vendor/bin/phpcs ./",
-    "test-phpmd": "./vendor/bin/phpmd ./ text vendor/thoughtsideas/ti-wpcs/ti-wpmd/ruleset.xml",
+    "test-phpmd": "./vendor/bin/phpmd ./ text ./vendor/thoughtsideas/ti-wpcs/TI-WPMD/ruleset.xml",
     "test": [
       "composer run test-phpcbf",
       "composer run test-phpcs",
