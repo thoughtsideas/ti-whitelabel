@@ -15,6 +15,11 @@ matrix:
   allow_failures:
     - php: nightly
 
+# Cache Composer's caches to speed up build times.
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 before_script:
   # Install composer packages before trying to activate themes or plugins
   - composer install
