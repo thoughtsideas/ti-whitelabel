@@ -1,7 +1,7 @@
 # Exclude files from being compiled in distribution file
 # https://git-scm.com/docs/gitattributes#_creating_an_archive
 /_scripts export-ignore
-/_tests export-ignore
+.travis.yml export-ignore
 /.github export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
@@ -10,5 +10,5 @@
 # https://github.com/github/linguist#using-gitattributes
 
 /_scripts linguist-vendored
-/_tests linguist-vendored
+.travis.yml linguist-vendored
 /composer.json linguist-vendored
