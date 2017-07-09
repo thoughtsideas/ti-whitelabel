@@ -36,3 +36,37 @@ After someone else has reviewed and signed off on the feature, you can merge it 
 ## Documentation
 
 During the Alpha/Beta stages, due to constant changes, documentation will be mainly written in-line. With a dedicated section being created at the first major release.
+
+## Customize WordPress Login view
+
+### Pass custom options
+
+```
+/**
+ * Apply our custom styles to the WordPress Login page.
+ *
+ * @param  array $defaults Default values set by the plugin.
+ * @return array           Our modified styles.
+ */
+function my_customize_login_view( $defaults ) {
+
+	$args = array(
+		'background-color' => 'SlateGray', // Accepts all CSS color values.
+		'logo'             => array(
+			'url'             => get_theme_mod( 'custom_logo' ), // Relative or absolute.
+			'width'           => '275px', // Accepts all CSS units.
+			'height'          => '100px', // Accepts all CSS units.
+		),
+		'color'             => 'rgb(51, 51, 51)', // Accepts all CSS color values.
+		'link'             => '#ffffff', // Accepts all CSS color values.
+		'hover'            => 'hsl(0, 0%, 0%)', // Accepts all CSS color values.
+	);
+
+	return wp_parse_args( $args, $defaults );
+}
+
+add_filter(
+	'ti_customize_login_view',
+	'my_customize_login_view'
+);
+```

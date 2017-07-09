@@ -72,6 +72,7 @@ class TI_Whitelabel {
 
 		$this->load_dependencies();
 		$this->set_locale();
+		$this->define_login_hooks();
 
 	}
 
@@ -104,6 +105,12 @@ class TI_Whitelabel {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ti-whitelabel-i18n.php';
 
+		/**
+		 * The class responsible for defining all actions shared by the Dashboard
+		 * and public-facing sides.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'login/class-ti-whitelabel-login.php';
+
 		$this->loader = new TI_Whitelabel_Loader();
 
 	}
@@ -125,6 +132,28 @@ class TI_Whitelabel {
 			'plugins_loaded',
 			$plugin_i18n,
 			'load_plugin_textdomain'
+		);
+
+	}
+
+	/**
+	 * Register all of the hooks related to shared functionality
+	 * of the plugin.
+	 *
+	 * @since    0.1.0
+	 * @access   private
+	 */
+	private function define_login_hooks() {
+
+		$plugin_login = new TI_Whitelabel_Login(
+			$this->get_plugin_name(),
+			$this->get_version()
+		);
+
+		$this->loader->add_action(
+			'login_head',
+			$plugin_login,
+			'login_head'
 		);
 
 	}
