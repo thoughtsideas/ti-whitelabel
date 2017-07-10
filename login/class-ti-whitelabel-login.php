@@ -76,26 +76,9 @@ class TI_Whitelabel_Login {
 			$output .= "body {\nbackground-color: " . esc_attr( $args['background-color'] ) . ";\n}\n";
 		}
 
-		$logo_css = 'background-size: 100%;';
-
-		// Customize logo url.
-		if ( ! empty( $args['logo']['url'] ) ) {
-			$logo_css .= "background-image: url('" . esc_url( $args['logo']['url'] ) . "');";
-		}
-
-		// Customize logo width.
-		if ( ! empty( $args['logo']['width'] ) ) {
-			$logo_css .= esc_attr( 'width:' . $args['logo']['width'] . ';' );
-		}
-
-		// Customize logo height.
-		if ( ! empty( $args['logo']['height'] ) ) {
-			$logo_css .= esc_attr( 'height:' . $args['logo']['height'] . ';' );
-		}
-
 		// Customize Logo.
 		if ( ! empty( $args['logo'] ) ) {
-			$output .= sprintf( ".login h1 a {\n%s\n}\n", $logo_css );
+			$output .= sprintf( ".login h1 a {\n%s\n}\n", self::custom_logo( $args['logo'] ) );
 		}
 
 		// Customize text colour.
@@ -116,6 +99,36 @@ class TI_Whitelabel_Login {
 		$output .= '</style>';
 
 		echo $output; // WPCS: XSS OK.
+
+	}
+
+	/**
+	 * Attributes for logo CSS class.
+	 *
+	 * @since    1.0.0
+	 *
+	 * @param array $args Options for logo.
+	 */
+	public function custom_logo( $args = null ) {
+
+		$logo_css = 'background-size: 100%;';
+
+		// Customize logo url.
+		if ( ! empty( $args['url'] ) ) {
+			$logo_css .= "background-image: url('" . esc_url( $args['url'] ) . "');";
+		}
+
+		// Customize logo width.
+		if ( ! empty( $args['width'] ) ) {
+			$logo_css .= esc_attr( 'width:' . $args['width'] . ';' );
+		}
+
+		// Customize logo height.
+		if ( ! empty( $args['height'] ) ) {
+			$logo_css .= esc_attr( 'height:' . $args['height'] . ';' );
+		}
+
+		return $logo_css;
 
 	}
 
