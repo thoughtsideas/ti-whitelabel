@@ -48,7 +48,7 @@ During the Alpha/Beta stages, due to constant changes, documentation will be mai
  * @param  array $defaults Default values set by the plugin.
  * @return array           Our modified styles.
  */
-function my_customize_login_view( $defaults ) {
+function my_customize_login_css( $defaults ) {
 
 	$args = array(
 		'background-color' => 'SlateGray', // Accepts all CSS color values.
@@ -66,7 +66,7 @@ function my_customize_login_view( $defaults ) {
 }
 
 add_filter(
-	'ti_customize_login_view',
-	'my_customize_login_view'
+	'ti_whitelable_login_css',
+	'my_customize_login_css'
 );
 ```

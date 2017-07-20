@@ -60,7 +60,7 @@ class TI_Whitelabel_Login {
 	public function login_head() {
 
 		$args = apply_filters(
-			'ti_customize_login_view',
+			'ti_whitelable_login_css',
 			array()
 		);
 
@@ -69,7 +69,9 @@ class TI_Whitelabel_Login {
 			return;
 		}
 
-		$output = '<style type="text/css">';
+		$before_output = '<style type="text/css">';
+		$output = '';
+		$after_output .= '</style>';
 
 		// Customize view background colour.
 		if ( ! empty( $args['background-color'] ) ) {
@@ -96,12 +98,19 @@ class TI_Whitelabel_Login {
 			$output .= ".login #nav a:hover,\n.login #backtoblog a:hover {\ncolor: " . esc_attr( $args['hover'] ) . ";\n}\n";
 		}
 
-		$output .= '</style>';
-
-		echo apply_filters( // WPCS: XSS OK.
-			'ti_customize_login_view_output',
+		/**
+		 * Filters the login view CSS output.
+		 *
+		 * @since   1.0.0
+		 *
+		 * @param string $output CSS styles for login view.
+		 */
+		$output = apply_filters(
+			'ti_whitelable_login_css_output',
 			$output
 		);
+
+		echo $before_output . $output . $after_output; // WPCS: XSS OK.
 
 	}
 
@@ -144,8 +153,15 @@ class TI_Whitelabel_Login {
 	 */
 	public function login_headerurl() {
 
+		/**
+		 * Filters the login_headurl output.
+		 *
+		 * @since   1.0.0
+		 *
+		 * @param string home_url() Home url output from options table.
+		 */
 		return apply_filters(
-			'ti_customize_login_header_url',
+			'ti_whitelabel_login_header_url',
 			home_url()
 		);
 
