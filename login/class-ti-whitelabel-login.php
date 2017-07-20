@@ -167,4 +167,29 @@ class TI_Whitelabel_Login {
 
 	}
 
+	/**
+	 * Use custom login header url.
+	 *
+	 * @since    1.0.0
+	 *
+	 * @return string Website URL from options table
+	 */
+	public function login_headertitle() {
+
+		$output = get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' );
+
+		/**
+		 * Filters the `login_headertitle` output.
+		 *
+		 * @since   1.0.0
+		 *
+		 * @param string $output Blog Name and Description from options table.
+		 */
+		return apply_filters(
+			'ti_whitelabel_login_header_title',
+			$output
+		);
+
+	}
+
 }
