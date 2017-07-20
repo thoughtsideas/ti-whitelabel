@@ -37,9 +37,9 @@ After someone else has reviewed and signed off on the feature, you can merge it 
 
 During the Alpha/Beta stages, due to constant changes, documentation will be mainly written in-line. With a dedicated section being created at the first major release.
 
-## Customize WordPress Login view
+### Customize WordPress Login
 
-### Pass custom options
+#### Custom CSS
 
 ```
 /**
@@ -48,7 +48,7 @@ During the Alpha/Beta stages, due to constant changes, documentation will be mai
  * @param  array $defaults Default values set by the plugin.
  * @return array           Our modified styles.
  */
-function my_customize_login_css( $defaults ) {
+function my_customized_login_css( $defaults ) {
 
 	$args = array(
 		'background-color' => 'SlateGray', // Accepts all CSS color values.
@@ -67,6 +67,48 @@ function my_customize_login_css( $defaults ) {
 
 add_filter(
 	'ti_whitelable_login_css',
-	'my_customize_login_css'
+	'my_customized_login_css'
+);
+```
+
+#### Custom Header URL
+
+```
+/**
+ * Apply our custom url to the WordPress Login page logo.
+ *
+ * @param  string $default  Default values set by the plugin.
+ * @return string           Our modified value.
+ */
+function my_customized_header_url( $default ) {
+
+	return 'https://thoughtsideas.uk';
+
+}
+
+add_filter(
+	'ti_whitelabel_login_header_url',
+	'my_customized_login_header_url'
+);
+```
+
+#### Custom Header Title
+
+```
+/**
+ * Apply our custom heading text to the WordPress Login page logo.
+ *
+ * @param  string $default  Default values set by the plugin.
+ * @return string           Our modified value.
+ */
+function my_customized_header_title( $default ) {
+
+	return 'Thoughts &amp; Ideas - Simplifying your promotion.';
+
+}
+
+add_filter(
+	'ti_whitelabel_login_header_title',
+	'my_customized_login_header_title'
 );
 ```
