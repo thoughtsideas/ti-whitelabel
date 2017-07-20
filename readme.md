@@ -1,4 +1,4 @@
-# [TI] Whitelabel.
+# [TI] Whitelabel
 
 [![license](https://img.shields.io/github/license/thoughtsideas/ti-whitelabel.svg)](https://github.com/thoughtsideas/ti-whitelabel)  [![GitHub release](https://img.shields.io/github/release/thoughtsideas/ti-whitelabel.svg)](https://github.com/thoughtsideas/ti-whitelabel)  [![Build Status](https://travis-ci.org/thoughtsideas/ti-whitelabel.svg?branch=master)](https://travis-ci.org/thoughtsideas/ti-whitelabel)  [![Packagist](https://img.shields.io/packagist/v/thoughtsideas/ti-whitelabel.svg)](https://packagist.org/packages/thoughtsideas/ti-whitelabel)  [![Packagist](https://img.shields.io/packagist/dt/thoughtsideas/ti-whitelabel.svg)](https://packagist.org/packages/thoughtsideas/ti-whitelabel)  [![GitHub issues](https://img.shields.io/github/issues/thoughtsideas/ti-whitelabel.svg)](https://github.com/thoughtsideas/ti-whitelabel)  [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/thoughtsideas/ti-whitelabel.svg)](https://github.com/thoughtsideas/ti-whitelabel)
 
@@ -37,9 +37,9 @@ After someone else has reviewed and signed off on the feature, you can merge it 
 
 During the Alpha/Beta stages, due to constant changes, documentation will be mainly written in-line. With a dedicated section being created at the first major release.
 
-## Customize WordPress Login view
+### Customize WordPress Login
 
-### Pass custom options
+#### Custom CSS
 
 ```
 /**
@@ -48,7 +48,7 @@ During the Alpha/Beta stages, due to constant changes, documentation will be mai
  * @param  array $defaults Default values set by the plugin.
  * @return array           Our modified styles.
  */
-function my_customize_login_css( $defaults ) {
+function my_customized_login_css( $defaults ) {
 
 	$args = array(
 		'background-color' => 'SlateGray', // Accepts all CSS color values.
@@ -67,6 +67,48 @@ function my_customize_login_css( $defaults ) {
 
 add_filter(
 	'ti_whitelable_login_css',
-	'my_customize_login_css'
+	'my_customized_login_css'
+);
+```
+
+#### Custom Header URL
+
+```
+/**
+ * Apply our custom url to the WordPress Login page logo.
+ *
+ * @param  string $default  Default values set by the plugin.
+ * @return string           Our modified value.
+ */
+function my_customized_header_url( $default ) {
+
+	return 'https://thoughtsideas.uk';
+
+}
+
+add_filter(
+	'ti_whitelabel_login_header_url',
+	'my_customized_login_header_url'
+);
+```
+
+#### Custom Header Title
+
+```
+/**
+ * Apply our custom heading text to the WordPress Login page logo.
+ *
+ * @param  string $default  Default values set by the plugin.
+ * @return string           Our modified value.
+ */
+function my_customized_header_title( $default ) {
+
+	return 'Thoughts &amp; Ideas - Simplifying your promotion.';
+
+}
+
+add_filter(
+	'ti_whitelabel_login_header_title',
+	'my_customized_login_header_title'
 );
 ```
