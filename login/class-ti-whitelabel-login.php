@@ -143,7 +143,12 @@ class TI_Whitelabel_Login {
 	 * @return string Website URL from options table
 	 */
 	public function login_headerurl() {
-		return home_url();
+
+		return apply_filters(
+			'ti_customize_login_header_url',
+			home_url()
+		);
+
 	}
 
 }
