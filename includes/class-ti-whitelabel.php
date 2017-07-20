@@ -156,6 +156,12 @@ class TI_Whitelabel {
 			'login_head'
 		);
 
+		$this->loader->add_filter(
+			'login_headerurl',
+			$plugin_login,
+			'login_headerurl'
+		);
+
 	}
 
 	/**
