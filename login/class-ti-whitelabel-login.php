@@ -98,7 +98,10 @@ class TI_Whitelabel_Login {
 
 		$output .= '</style>';
 
-		echo $output; // WPCS: XSS OK.
+		echo apply_filters( // WPCS: XSS OK.
+			'ti_customize_login_view_output',
+			$output
+		);
 
 	}
 
