@@ -3,7 +3,7 @@
  * Customise the WordPress login view.
  *
  * @link       https://www.thoughtsideas.uk
- * @since      1.0.0
+ * @since      0.1.0
  *
  * @package    TI_Whitelabel
  * @subpackage TI_Whitelabel/login
@@ -23,7 +23,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -32,7 +32,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -41,7 +41,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 * @param      string $plugin_name       The name of the plugin.
 	 * @param      string $version    The version of this plugin.
 	 */
@@ -55,7 +55,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * Register the inline style to adjust the layout of the login view.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 */
 	public function login_head() {
 
@@ -101,7 +101,7 @@ class TI_Whitelabel_Login {
 		/**
 		 * Filters the login view CSS output.
 		 *
-		 * @since   1.0.0
+		 * @since   0.1.0
 		 *
 		 * @param string $output CSS styles for login view.
 		 */
@@ -117,7 +117,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * Attributes for logo CSS class.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 *
 	 * @param array $args Options for logo.
 	 */
@@ -147,7 +147,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * Use custom login header url.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 *
 	 * @return string Website URL from options table
 	 */
@@ -156,7 +156,7 @@ class TI_Whitelabel_Login {
 		/**
 		 * Filters the login_headurl output.
 		 *
-		 * @since   1.0.0
+		 * @since   0.1.0
 		 *
 		 * @param string home_url() Home url output from options table.
 		 */
@@ -170,7 +170,7 @@ class TI_Whitelabel_Login {
 	/**
 	 * Use custom login header url.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 *
 	 * @return string Website URL from options table
 	 */
@@ -181,7 +181,7 @@ class TI_Whitelabel_Login {
 		/**
 		 * Filters the `login_headertitle` output.
 		 *
-		 * @since   1.0.0
+		 * @since   0.1.0
 		 *
 		 * @param string $output Blog Name and Description from options table.
 		 */
