@@ -5,15 +5,19 @@ notifications:
   on_success: never
   on_failure: change
 
-php:
-  - nightly
-  - 7.1
-  - 7.0
-  - 5.6
-
 matrix:
+  include:
+    - php: nightly
+      env: WP_VERSION=latest WP_MULTISITE=0
+    - php: 7.1
+      env: WP_VERSION=latest WP_MULTISITE=0
+    - php: 7.0
+      env: WP_VERSION=latest WP_MULTISITE=0
+    - php: 5.6
+      env: WP_VERSION=latest WP_MULTISITE=0
   allow_failures:
     - php: nightly
+
 
 # Cache Composer's caches to speed up build times.
 cache:
