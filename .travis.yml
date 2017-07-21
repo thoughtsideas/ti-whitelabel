@@ -36,6 +36,8 @@ before_script:
   - mkdir -p $WP_PLUGIN_MU_DIR
   - cd ..
   - mv $WP_PLUGIN_SLUG $WP_PLUGIN_MU_DIR
+  # Setup WordPress
+  - mysql -e "CREATE DATABASE wordpress;" -uroot
   # Install composer packages before trying to activate themes or plugins
   - composer require thoughtsideas/ti-wpcs:*
   - vendor/bin/phpcs --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/frenck/php-compatibility,../../../vendor/thoughtsideas/ti-wpcs
