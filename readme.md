@@ -112,3 +112,28 @@ add_filter(
 	'my_customized_login_header_title'
 );
 ```
+
+### Customize WordPress Admin
+
+#### Custom Admin Footer Text
+
+```
+/**
+ * Apply our custom admin footer text to the WordPress admin page.
+ *
+ * @return string           Our modified value.
+ */
+function my_customized_admin_footer_text() {
+	return sprintf(
+		'%1$s <a href="%3$s" target="_blank">%2$s</a>.',
+		esc_html( 'Created by' ),
+		esc_html( 'Thoughts & Ideas' ),
+		esc_url( 'https://www.thoughtsideas.uk/' )
+	);
+}
+
+add_filter(
+	'ti_whitelabel_admin_footer_text',
+	'my_customized_admin_footer_text'
+);
+```

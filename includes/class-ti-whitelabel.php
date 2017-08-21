@@ -68,11 +68,12 @@ class TI_Whitelabel {
 	public function __construct() {
 
 		$this->plugin_name = 'ti-whitelabel';
-		$this->version = '0.1.0';
+		$this->version = '0.2.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_login_hooks();
+		$this->define_admin_hooks();
 
 	}
 
@@ -110,6 +111,8 @@ class TI_Whitelabel {
 		 * and public-facing sides.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'login/class-ti-whitelabel-login.php';
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-ti-whitelabel-admin.php';
 
 		$this->loader = new TI_Whitelabel_Loader();
 
@@ -166,6 +169,28 @@ class TI_Whitelabel {
 			'login_headertitle',
 			$plugin_login,
 			'login_headertitle'
+		);
+
+	}
+
+	/**
+	 * Register all of the hooks related to shared functionality
+	 * of the plugin.
+	 *
+	 * @since    0.2.0
+	 * @access   private
+	 */
+	private function define_admin_hooks() {
+
+		$plugin_admin = new TI_Whitelabel_Admin(
+			$this->get_plugin_name(),
+			$this->get_version()
+		);
+
+		$this->loader->add_filter(
+			'admin_footer_text',
+			$plugin_admin,
+			'admin_footer_text'
 		);
 
 	}
