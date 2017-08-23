@@ -23,24 +23,16 @@
     "wp",
     "seo"
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "php": ">=5.6"
   },
   "require-dev": {
-    "thoughtsideas/ti-wpcs": "*"
+    "thoughtsideas/ti-wpcs": "^1.1.1"
   },
   "scripts": {
-    "config-ti-wpcs": [
-      "\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/frenck/php-compatibility,../../../vendor/thoughtsideas/ti-wpcs",
-      "\"vendor/bin/phpcs\" --config-set default_standard TI-WPCS",
-      "\"vendor/bin/phpcs\" --config-set colors 1",
-      "\"vendor/bin/phpcs\" --config-set show_progress 1"
-    ],
-    "post-install-cmd": "composer config-ti-wpcs",
-    "post-update-cmd": "composer config-ti-wpcs",
-    "test-phpcbf": "./vendor/bin/phpcbf ./",
-    "test-phpcs": "./vendor/bin/phpcs ./",
+    "test-phpcbf": "./vendor/bin/phpcbf --standard=phpcs.xml ./",
+    "test-phpcs": "./vendor/bin/phpcs --standard=phpcs.xml ./",
     "test-phpmd": "./vendor/bin/phpmd ./ text ./vendor/thoughtsideas/ti-wpcs/TI-WPMD/ruleset.xml",
     "test": [
       "composer run test-phpcbf",
