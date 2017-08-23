@@ -42,6 +42,7 @@ before_script:
   - if [[ "$SNIFF" == "1" ]]; then composer require thoughtsideas/ti-wpcs:^1.1.1; fi
 
 script:
+  - ls -la $WP_PLUGIN_MU_DIR/$WP_PLUGIN_SLUG/
   # Only run PHP Code tests on one environment to improve total test time.
   - if [[ "$SNIFF" == "1" ]]; then ./vendor/bin/phpcs $WP_PLUGIN_MU_DIR/$WP_PLUGIN_SLUG/ --standard=phpcs.xml; fi
   - if [[ "$SNIFF" == "1" ]]; then ./vendor/bin/phpmd $WP_PLUGIN_MU_DIR/$WP_PLUGIN_SLUG/ text ./vendor/thoughtsideas/ti-wpcs/TI-WPMD/ruleset.xml; fi
