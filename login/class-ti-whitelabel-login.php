@@ -71,7 +71,7 @@ class TI_Whitelabel_Login {
 
 		$before_output = '<style type="text/css">';
 		$output = '';
-		$after_output .= '</style>';
+		$after_output = '</style>';
 
 		// Customize view background colour.
 		if ( ! empty( $args['background-color'] ) ) {
